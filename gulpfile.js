@@ -8,11 +8,11 @@ const gutil = require('gulp-util');
 const connect = require('gulp-connect');
 
 gulp.task('scripts', function() {
-  browserify('src/index.js')
-    .transform('babelify', {presets: ['es2015'})
+  browserify('src/js/index.js')
+    .transform('babelify', {presets: ['es2015']})
     .bundle()
     .pipe(source('index.js'))
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('build/js'))
     .pipe(connect.reload());
 });
 
