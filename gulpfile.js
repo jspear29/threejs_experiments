@@ -12,14 +12,14 @@ gulp.task('scripts', function() {
     .transform('babelify', {presets: ['es2015']})
     .bundle()
     .pipe(source('index.js'))
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest('docs/js'))
     .pipe(connect.reload());
 });
 
 // move html/templates/whatever
 gulp.task('assets', function() {
   gulp.src('src/**/*.html')
-    .pipe(gulp.dest('build/'))
+    .pipe(gulp.dest('docs/'))
     .pipe(connect.reload());
 });
 
@@ -31,7 +31,7 @@ gulp.task('sass', function() {
 // move the vendor stuff here
 gulp.task('vendor', function() {
   gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
-    .pipe(gulp.dest('build/vendor/css'))
+    .pipe(gulp.dest('docs/vendor/css'))
 });
 
 // watch my stuffs
@@ -43,7 +43,7 @@ gulp.task('watch', function() {
 // dev server
 gulp.task('serve', function() {
   connect.server({
-    root: 'build',
+    root: 'docs',
     livereload: true
   });
 });
