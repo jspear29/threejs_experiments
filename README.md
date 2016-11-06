@@ -1,8 +1,9 @@
-# gulp-es6-boilerplate
-## Because I'm tired of redoing this.
-Just a simple template for frontend experiements
+# github-page-boilerplate
+Just another template for a project that uses github pages.  
+An easy way to put a frontend experiement online
 
 ## Includes
 - gulp
 - browserify
 - babelify
+- es6
