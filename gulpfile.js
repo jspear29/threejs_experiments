@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const sass = require('gulp-sass');
 const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
@@ -26,7 +27,9 @@ gulp.task('assets', function() {
 
 // compile the sass
 gulp.task('sass', function() {
-
+  gulp.src('src/scss/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('docs/css/'));
 });
 
 // move the vendor stuff here
@@ -39,6 +42,7 @@ gulp.task('vendor', function() {
 gulp.task('watch', function() {
   gulp.watch(['src/**/*.html'], ['assets']);
   gulp.watch(['src/**/*.js'], ['scripts']);
+  gulp.watch(['src/scss/*.scss'], ['sass']);
 });
 
 // dev server
@@ -50,8 +54,9 @@ gulp.task('serve', function() {
 });
 
 gulp.task('commit', function(){
-  //TODO  
+  //TODO
 });
 
 gulp.task('default', ['scripts', 'assets', 'vendor', 'sass', 'serve', 'watch']);
+gulp.task('build', ['scripts', 'assets', 'vendor', 'sass']);
 gulp.task('publish', ['scripts', 'assets', 'vendor', 'sass', 'commit']);
