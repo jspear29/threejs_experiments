@@ -6,6 +6,7 @@ const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const gutil = require('gulp-util');
 const connect = require('gulp-connect');
+const git = require('gulp-git');
 
 gulp.task('scripts', function() {
   browserify('src/js/index.js')
@@ -48,4 +49,9 @@ gulp.task('serve', function() {
   });
 });
 
+gulp.task('commit', function(){
+  //TODO  
+});
+
 gulp.task('default', ['scripts', 'assets', 'vendor', 'sass', 'serve', 'watch']);
+gulp.task('publish', ['scripts', 'assets', 'vendor', 'sass', 'commit']);
