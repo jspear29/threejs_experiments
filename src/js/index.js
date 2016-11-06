@@ -1,1 +1,1 @@
-console.log('hello wrrld')
+import Box from './components/box.js';
