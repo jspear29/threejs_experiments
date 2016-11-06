@@ -31,7 +31,7 @@ gulp.task('sass', function() {
 // move the vendor stuff here
 gulp.task('vendor', function() {
   gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
-    .pipe(gulp.dest('css/'))
+    .pipe(gulp.dest('docs/css/'))
 });
 
 // watch my stuffs
