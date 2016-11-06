@@ -31,13 +31,13 @@ gulp.task('sass', function() {
 // move the vendor stuff here
 gulp.task('vendor', function() {
   gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
-    .pipe(gulp.dest('docs/vendor/css'))
+    .pipe(gulp.dest('css/'))
 });
 
 // watch my stuffs
 gulp.task('watch', function() {
   gulp.watch(['src/**/*.html'], ['assets']);
-  gulp.watch(['src/**/*.js', 'src/**/*.jsx'], ['scripts']);
+  gulp.watch(['src/**/*.js'], ['scripts']);
 });
 
 // dev server
