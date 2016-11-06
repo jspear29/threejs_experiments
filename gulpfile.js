@@ -8,8 +8,8 @@ const gutil = require('gulp-util');
 const connect = require('gulp-connect');
 
 gulp.task('scripts', function() {
-  browserify('src/js/index.js')
-    .transform('babelify', {presets: ['es2015']})
+  browserify({entries: ['src/js/index.js'], debug: true})
+    .transform('babelify', {presets: ['es2015'], sourceMaps: true})
     .bundle()
     .pipe(source('index.js'))
     .pipe(gulp.dest('build/js'))
